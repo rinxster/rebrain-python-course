@@ -60,7 +60,6 @@ for number in range(len(list1)):
 
     my_information = dict({'time': time, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
     listdic.append(my_information)
-
 print(listdic)
 
 # 3. Выведите на экран список значений <дата/время> всех словарей. Воспользуйтесь списковым включением.
