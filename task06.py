@@ -1,6 +1,6 @@
 # Задание
 # 1. Вам дан все тот же список логов:
-
+print('---1---')
 list1 = [
 'May 18 11:59:18 PC-00102 plasmashell[1312]: kf.plasma.core: findInCache with a lastModified timestamp of 0 is deprecated',
 'May 18 13:06:54 ideapad kwin_x11[1273]: Qt Quick Layouts: Detected recursive rearrange. Aborting after two iterations.',
@@ -15,19 +15,16 @@ list1 = [
 'May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.'
 ]
 # 2. Загрузите в файл с именем 'file_6.txt' строки этого списка за 20 мая
-
-newdict={}
-
-
-
+print('---2---')
+findstr ='May 20'
 with open('file_6.txt', 'w') as filehandle:
-    for listitem in list1:
-        filehandle.write(f'{listitem}\n')
+    for item in list1:
+        if findstr in item:
+            filehandle.write(f'{item}\n')
 
 # 3. Считайте из этого файла время первой записи. Ничего кроме времени считывать не нужно! Выведите это время на экран.
-
+print('---3---')
 list2 = []
-
 with open('file_6.txt', 'r') as f:
     list2 = f.readline().strip('\n')
 print(list2.split()[2])
