@@ -28,7 +28,6 @@ print(sum([int(s) for s in (stroka[6:15].split(':'))]))
 # Нужно сформировать и вывести сообщение в таком формате:
 #
 # The PC "<имя ПК>" receive message from service "<имя сервиса>" what says "<сообщение>" because "<причина ошибки>" at <дата, время>
-
 stroka2='May 24 14:03:01 ideapad colord[844]: failed to get session [pid 8279]: Нет доступных данных'
 print(f'The PC "{stroka2[16:23]}" receive message from service "{stroka2[24:35]}" what says "{stroka2[71:93]}" because "{stroka2[37:58]}" at {stroka2[0:15]}')
 
