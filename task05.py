@@ -36,9 +36,9 @@ for number in range(len(list1)):
     string1 = list1[number]
     x = string1.split(" ")
     # 'time': <дата/время>
-    time2 = ''
+    time = ''
     for i in range(3):
-        time2 = str(time2) + x[0] + ' '
+        time = str(time) + x[0] + ' '
         x.pop(0)
 
     # 'pc_name': <имя компьютера>
@@ -53,7 +53,7 @@ for number in range(len(list1)):
     separator = ' '
     message = separator.join(x)
 
-    my_information = dict({'time': time2, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
+    my_information = dict({'time': time, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
     listdic.append(my_information)
 
 print(listdic)
@@ -61,31 +61,16 @@ print(listdic)
 
 # 3. Выведите на экран список значений <дата/время> всех словарей. Воспользуйтесь списковым включением.
 
-# for i in range(0, len(list1)):
-#     print(i)
-#     string2 = list1[i]
-#     x = string2.split(" ")
-#     # 'time': <дата/время>
-#     time2 = ''
-#     for i in range(3):
-#         time2 = str(time2) + x[0] + ' '
-#         x.pop(0)
-#
-#     # 'pc_name': <имя компьютера>
-#     pc_name = x[0]
-#     x.pop(0)
-#     # 'service_name': <имя сервиса>
-#     service_name = x[0][:-1]
-#     x.pop(0)
-#     # 'message': <сообщение лога>
-#     separator = ' '
-#     message = separator.join(x)
-#     my_information2 = dict({'time': time2, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
-#     print('----<дата/время>---------')
-#     print(my_information2['time'])
+print(*[i['time']for i in listdic])
 
-# 4. Измените словари в списке: создайте новый ключ 'date', перенеся в его значение дату из поля 'time'. В поле 'time' оставьте только время. Выведите значения для поля 'time' всех словарей в списке.
+# 4. Измените словари в списке: создайте новый ключ 'date', перенеся в его значение дату из поля 'time'.
+# В поле 'time' оставьте только время.
+# Выведите значения для поля 'time' всех словарей в списке.
 # //TODO XXX
+
+# запускаем цикл по словарю
+# добавляем ключ дата
+# берём значение и тайм2, разрезаем его, часть вставляем в дату, в оставшееся отрезаем и вставляем в 'time'
 
 # 5. Выведите список значений поля 'message' для всех логов, которые записал ПК с именем 'PC0078'. Воспользуйтесь списковым включением.
 # //TODO XXX
