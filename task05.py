@@ -24,12 +24,17 @@ list1 = [
 'May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.',
 'May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.'
 ]
+print('---5.1---')
+print(list1)
 
 # 2. Создайте из него список словарей, используя ключи из того же задания. Напоминаю:
 # 'time': <дата/время>
 # 'pc_name': <имя компьютера>
 # 'service_name': <имя сервиса>
 # 'message': <сообщение лога>
+
+print('---5.2---')
+
 
 listdic = []
 for number in range(len(list1)):
@@ -58,9 +63,8 @@ for number in range(len(list1)):
 
 print(listdic)
 
-
 # 3. Выведите на экран список значений <дата/время> всех словарей. Воспользуйтесь списковым включением.
-
+print('---5.3---')
 print(*[i['time']for i in listdic])
 
 # 4. Измените словари в списке: создайте новый ключ 'date', перенеся в его значение дату из поля 'time'.
