@@ -45,6 +45,7 @@ for number in range(len(list1)):
     for i in range(3):
         time = str(time) + x[0] + ' '
         x.pop(0)
+    time=time.strip()
 
     # 'pc_name': <имя компьютера>
     pc_name = x[0]
@@ -69,21 +70,44 @@ print(*[i['time']for i in listdic])
 # 4. Измените словари в списке: создайте новый ключ 'date', перенеся в его значение дату из поля 'time'.
 # В поле 'time' оставьте только время.
 # Выведите значения для поля 'time' всех словарей в списке.
+# Пример May 20 12:48:18 -> "'May 20', '12:48:18'"
 # //TODO XXX
 
-
+print('---5.4---')
 
 # запускаем цикл по словарю
 # добавляем ключ дата
 # берём значение и тайм2, разрезаем его, часть вставляем в дату, в оставшееся отрезаем и вставляем в 'time'
 
+for date in listdic:
+    string1 = list1[number]
+    x = string1.split(" ")
+    time2 = ''
+    for i in range(2):
+        time = str(time2) + x[0] + ' '
+        x.pop(0)
+    time2 = time2.strip()
+
+print(date)
+
+
+
 # 5. Выведите список значений поля 'message' для всех логов, которые записал ПК с именем 'PC0078'. Воспользуйтесь списковым включением.
+print('---5.5---')
 print(*[i['message'] for i in listdic if i['pc_name']=='PC0078'])
 
-
-
 # 6. Превратите список словарей логов (который вы сделали в задании 2) в словарь. Ключами в нем будут целые числа от 100 до 110, а значениями - словари логов.
-# //TODO XXX
+print('---5.6---')
+
+iter=99
+new_dict = {}
+for item in listdic:
+   message = item.pop('message')
+   iter=iter+1
+   new_dict[iter] = message
+
+print(new_dict)
 
 # 7. Выведите на экран словарь лога под ключом 104.
-# //TODO XXX
+print('---5.7---')
+print({key: value for key, value in new_dict.items() if key == 104})
