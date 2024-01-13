@@ -24,7 +24,43 @@ list1 = [
 'May 24 16:19:52 PC-00233 systemd[1116]: Reached target Sound Card.',
 'May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.'
 ]
-# print(len(list1))
+
+# 2. Создайте из него список словарей, используя ключи из того же задания. Напоминаю:
+# 'time': <дата/время>
+# 'pc_name': <имя компьютера>
+# 'service_name': <имя сервиса>
+# 'message': <сообщение лога>
+
+listdic = []
+for number in range(len(list1)):
+    string1 = list1[number]
+    x = string1.split(" ")
+    # 'time': <дата/время>
+    time2 = ''
+    for i in range(3):
+        time2 = str(time2) + x[0] + ' '
+        x.pop(0)
+
+    # 'pc_name': <имя компьютера>
+    pc_name = x[0]
+    x.pop(0)
+
+    # 'service_name': <имя сервиса>
+    service_name = x[0][:-1]
+    x.pop(0)
+
+    # 'message': <сообщение лога>
+    separator = ' '
+    message = separator.join(x)
+
+    my_information = dict({'time': time2, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
+    listdic.append(my_information)
+
+print(listdic)
+
+
+# 3. Выведите на экран список значений <дата/время> всех словарей. Воспользуйтесь списковым включением.
+
 # for i in range(0, len(list1)):
 #     print(i)
 #     string2 = list1[i]
@@ -45,56 +81,8 @@ list1 = [
 #     separator = ' '
 #     message = separator.join(x)
 #     my_information2 = dict({'time': time2, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
-#     print('----# <имя компьютера>: <сообщение>---------')
-#     print(my_information2['pc_name'] + ' : ' + my_information2['message'])
-#
-
-# 2. Создайте из него список словарей, используя ключи из того же задания. Напоминаю:
-# 'time': <дата/время>
-# 'pc_name': <имя компьютера>
-# 'service_name': <имя сервиса>
-# 'message': <сообщение лога>
-
-# {'time': <дата/время>, 'pc_name': <имя компьютера>, 'service_name': <имя сервиса>, 'message': <сообщение лога>}
-
-# //TODO XXX
-
-#https://builtin.com/software-engineering-perspectives/convert-list-to-dictionary-python
-# используем функцию ZIP()
-#сделать список ключей
-
-#сделать список значений(сначала для одной строки)
-l1=['time', 'pc_name', 'service_name', 'message']
-
-# для примера сделать для одной струки списк ключей и список значений
-
-# сделать цикл построчно склеивать списк ключей и список значений
-l2=
-
-# 3. Выведите на экран список значений <дата/время> всех словарей. Воспользуйтесь списковым включением.
-
-for i in range(0, len(list1)):
-    print(i)
-    string2 = list1[i]
-    x = string2.split(" ")
-    # 'time': <дата/время>
-    time2 = ''
-    for i in range(3):
-        time2 = str(time2) + x[0] + ' '
-        x.pop(0)
-
-    # 'pc_name': <имя компьютера>
-    pc_name = x[0]
-    x.pop(0)
-    # 'service_name': <имя сервиса>
-    service_name = x[0][:-1]
-    x.pop(0)
-    # 'message': <сообщение лога>
-    separator = ' '
-    message = separator.join(x)
-    my_information2 = dict({'time': time2, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
-    print('----<дата/время>---------')
-    print(my_information2['time'])
+#     print('----<дата/время>---------')
+#     print(my_information2['time'])
 
 # 4. Измените словари в списке: создайте новый ключ 'date', перенеся в его значение дату из поля 'time'. В поле 'time' оставьте только время. Выведите значения для поля 'time' всех словарей в списке.
 # //TODO XXX
