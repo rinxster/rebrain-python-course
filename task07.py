@@ -72,9 +72,8 @@ print(list2)
 
 print('------4.2-----')
 def analyzelist(list):
-    print('номер накопителя, который нужно проверить')
     for number in range(len(list)):
-        print(number)
+        # print(number)
         # number = int(input())
         free_b = list[number]['total']-list[number]['used']
         free_p = ((list[number]['total']-list[number]['used'])/list[number]['total'])*100
@@ -90,12 +89,25 @@ analyzelist(list2)
 # 4.3. Формирует словарь, ключами которого являются: 'memory_ok', 'memory_not_enough' и 'memory_critical',
 # а значениями - списки id накопителей, состояние которых относится к соответствующему ключу
 # (достаточно свободного места, мало свободного места и критически мало свободного места соответственно).
-
-def createdict():
-        pass
-
 # 4.4. Возвращает сформированный словарь.
-def returncreatedict():
-    pass
-
 # 5. Примените эту функцию к вашему списку и выведите словарь, полученный в результате ее работы, на экран.
+
+print('----4.3/4.4/5-----')
+
+def createdict(list):
+    dictdisk={}
+    for number in range(len(list)):
+        # print(number)
+        # number = int(input())
+        free_b = list[number]['total'] - list[number]['used']
+        free_p = ((list[number]['total'] - list[number]['used']) / list[number]['total']) * 100
+        if ((free_b < 10737418240) or free_p < 5):
+            dictdisk[number]='memory_critical'
+        elif ((free_b < 32212254720) or free_p < 10):
+            dictdisk[number]='memory_not_enough'
+        else:
+            dictdisk[number]='memory_ok'
+    return dictdisk
+print(createdict(list2))
+
+
