@@ -58,8 +58,6 @@ def getlist1():
         {'total': 49705846287, 'used': 9522710872},
     ]
     print(list1)
-
-
 getlist1()
 
 #
