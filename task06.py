@@ -24,7 +24,7 @@ with open('file_6.txt', 'w') as filehandle:
 
 # 3. Считайте из этого файла время первой записи. Ничего кроме времени считывать не нужно! Выведите это время на экран.
 print('---3---')
-list2 = []
 with open('file_6.txt', 'r') as f:
-    list2 = f.readline().strip('\n')
-print(list2.split()[2])
+    f.seek(7)
+    print(f.read(8))
+
