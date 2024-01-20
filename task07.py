@@ -27,7 +27,34 @@ print('----2----')
 # 'service_name': <имя сервиса>
 # 'message': <сообщение лога>
 
-def funcxxx(list, **kwargs ):
+def parsesrting(stroka):
+
+    string1 = stroka
+    x = string1.split(" ")
+    # 'time': <дата/время>
+    time = ''
+    for i in range(3):
+        time = str(time) + x[0] + ' '
+        x.pop(0)
+    time = time.strip()
+
+    # 'pc_name': <имя компьютера>
+    pc_name = x[0]
+    x.pop(0)
+
+    # 'service_name': <имя сервиса>
+    service_name = x[0][:-1]
+    x.pop(0)
+
+    # 'message': <сообщение лога>
+    separator = ' '
+    message = separator.join(x)
+    my_information = dict({'time': time, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
+    return my_information
+
+print(parsesrting(list1[3]))
+
+def funcxxx(list):
     listdic = []
     for number in range(len(list)):
         string1 = list[number]
@@ -53,18 +80,38 @@ def funcxxx(list, **kwargs ):
 
         my_information = dict({'time': time, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
         listdic.append(my_information)
-    return listdic
+    # return listdic
+    print(listdic)
+    return
 
-print(funcxxx(list1))
+funcxxx(list1)
+
+print('---experiment----')
+def funcxxx_2(*list):
+
+    # listdic = []
+    for number in list:
+        print(number)
+        parsesrting(number)
+        # parsesrting(list[number])
+        # listdic.append(my_information)
+        # print(listdic[number])
+    # return listdic
+    # print(listdic)
+    return
+
+
+
+
 
 # 2.3. Модифицирует входной список (переданный в качестве первого аргумента), добавляя в него все созданные словари.
 # Возвращать функция, соответственно, должна None
 
-def func23():
-    return
 
 # 2.4. Создайте пустой список и добавьте в него 1ю, 2ю и 4ю запись из списка логов с помощью одного вызова вашей функции.
 # Выведите полученный список на экран
+
+
 
 
 # 3. Скопируйте к себе этот модифицированный список из 4го блока, отображающий количество общей и занятой памяти на
