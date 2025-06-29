@@ -15,11 +15,16 @@ list1 = [
     'May 24 19:26:40 PC-00102 rtkit-daemon[1131]: Supervising 5 threads of 2 processes of 1 users.'
 ]
 
-print('----2----')
 
 # 2. Напишите функцию, которая:
+
 # 2.1. Получает в качестве первого аргумента список для вывода данных, а в качестве последующих - сколько угодно строк логов
 # по типу тех, что есть в скопированном вами списке.
+print('----2.1----')
+def func21(outlist, *strings):
+    print(outlist)
+func21(list1)
+
 
 # 2.2. Превращает вводимые вами строки логов в словари по тому же принципу, что и в пункте 2 задания для 3го блока. Напоминаю:
 # 'time': <дата/время>
@@ -27,33 +32,7 @@ print('----2----')
 # 'service_name': <имя сервиса>
 # 'message': <сообщение лога>
 
-def parsesrting(stroka):
-
-    string1 = stroka
-    x = string1.split(" ")
-    # 'time': <дата/время>
-    time = ''
-    for i in range(3):
-        time = str(time) + x[0] + ' '
-        x.pop(0)
-    time = time.strip()
-
-    # 'pc_name': <имя компьютера>
-    pc_name = x[0]
-    x.pop(0)
-
-    # 'service_name': <имя сервиса>
-    service_name = x[0][:-1]
-    x.pop(0)
-
-    # 'message': <сообщение лога>
-    separator = ' '
-    message = separator.join(x)
-    my_information = dict({'time': time, 'pc_name': pc_name, 'service_name': service_name, 'message': message})
-    return my_information
-
-print(parsesrting(list1[3]))
-
+print('----2.2----')
 def funcxxx(list):
     listdic = []
     for number in range(len(list)):
@@ -86,34 +65,26 @@ def funcxxx(list):
 
 funcxxx(list1)
 
-print('---experiment----')
-def funcxxx_2(*list):
-
-    # listdic = []
-    for number in list:
-        print(number)
-        parsesrting(number)
-        # parsesrting(list[number])
-        # listdic.append(my_information)
-        # print(listdic[number])
-    # return listdic
-    # print(listdic)
-    return
 
 
-
-
-
+print('----2.3----')
 # 2.3. Модифицирует входной список (переданный в качестве первого аргумента), добавляя в него все созданные словари.
 # Возвращать функция, соответственно, должна None
 
 
+print('----2.4----')
 # 2.4. Создайте пустой список и добавьте в него 1ю, 2ю и 4ю запись из списка логов с помощью одного вызова вашей функции.
 # Выведите полученный список на экран
 
+list24= []
 
+def task24(list24, *linefromlogs):
+    for n in linefromlogs:
+        print(list1[n])
 
+task24(list1, 0, 1, 3)
 
+print('----3----')
 # 3. Скопируйте к себе этот модифицированный список из 4го блока, отображающий количество общей и занятой памяти на
 # накопителях:
 # [
