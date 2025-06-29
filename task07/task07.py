@@ -33,7 +33,7 @@ func21(list1)
 # 'message': <сообщение лога>
 
 print('----2.2----')
-def funcxxx(list):
+def func22(list):
     listdic = []
     for number in range(len(list)):
         string1 = list[number]
@@ -63,13 +63,15 @@ def funcxxx(list):
     print(listdic)
     return
 
-funcxxx(list1)
+func22(list1)
 
 
 
 print('----2.3----')
 # 2.3. Модифицирует входной список (переданный в качестве первого аргумента), добавляя в него все созданные словари.
 # Возвращать функция, соответственно, должна None
+
+ЗАДАНИЕ НЕПОНЯТНО! ТРЕБУЕТСЯ ПОЯСНЕНИЕ!
 
 
 print('----2.4----')
@@ -80,9 +82,11 @@ list24= []
 
 def task24(list24, *linefromlogs):
     for n in linefromlogs:
-        print(list1[n])
+        #print(list1[n])
+        list24.append(list1[n])
+    print(list24)
 
-task24(list1, 0, 1, 3)
+task24(list24, 0, 1, 3)
 
 print('----3----')
 # 3. Скопируйте к себе этот модифицированный список из 4го блока, отображающий количество общей и занятой памяти на
